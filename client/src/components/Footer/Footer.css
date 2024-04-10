@@ -1,0 +1,24 @@
+.custom-link-styling {
+  @apply transition duration-300 hover:text-gray-400;
+}
+.custom-font-family {
+  font-family: Crimson Text, serif;
+}
+
+.footer-header {
+  @apply text-lg font-semibold text-white mb-4;
+}
+
+
+@media only screen and (min-width: 768px) {
+  .mobile-arrow {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .footer {
+    border-bottom: 1px solid white;
+    padding-bottom: 5px;
+  }
+}

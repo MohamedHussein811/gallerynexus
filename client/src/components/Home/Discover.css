@@ -1,0 +1,9 @@
+.max-h-80{
+    min-height: 320px;
+}
+@media (max-width: 640px) {
+    .max-h-80 {
+        min-height: 240px;
+    }
+  }
+  
