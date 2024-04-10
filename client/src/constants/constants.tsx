@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
 //export const api = "http://localhost:3001";
-export const api = "https://gallery-nexus-api.vercel.app";
+export const api = "https://api-gallerynexus.vercel.app";
 export const frontendURL = "https://gallery-nexus.vercel.app";
 
 export const useUserId = () => {

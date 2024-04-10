@@ -10,7 +10,8 @@ const cookieParser = require("cookie-parser"); // Add cookie-parser
 const allowedOrigins = [
   "http://localhost:3000", // Front-End Localhost
   "http://localhost:5173",
-  "https://gallery-nexus.vercel.app"
+  "https://gallery-nexus.vercel.app",
+  "https://gallerynexus.vercel.app",
 ];
 
 app.use(cors({
