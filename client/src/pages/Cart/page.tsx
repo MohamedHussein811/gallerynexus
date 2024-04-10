@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { api, useUserId } from "../../constants/constants";
-import OrderSummary from "../../components/Cart/OrderSummary";
-import CheckoutForm from "../../components/Cart/CheckoutForm";
-import ShoppingCart from "../../components/Cart/ShoppingCart";
+import OrderSummary from "../../components/Shop/Cart/OrderSummary";
+import CheckoutForm from "../../components/Shop/Cart/CheckoutForm";
+import ShoppingCart from "../../components/Shop/Cart/ShoppingCart";
 import Loading from "../../components/Loading/Loading";
 import { useCookies } from "react-cookie";
 

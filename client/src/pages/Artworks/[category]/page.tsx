@@ -1,12 +1,12 @@
 import { useEffect, useState, useMemo } from "react";
-import Filters from "../../../components/Filters/Filters";
-import Art from "../../../components/ArtComponent/ArtComponent";
+import Filters from "../../../components/Art/Filters/Filters";
 import Loading from "../../../components/Loading/Loading";
 import NotFound from "../../../not-found";
 import { api } from "../../../constants/constants";
 import queryString from "query-string";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import ArtworkItem from "../../../components/Art/ArtworkItem/ArtworkItem";
 
 interface ArtData {
   _id: string;
@@ -22,7 +22,8 @@ export default function Artworks() {
   const [artData, setArtData] = useState<ArtData[] | null>(null);
   const [priceRange, setPriceRange] = useState<string | null>(null);
   const [searchQueryParam, setSearchQueryParam] = useState<string>("");
-  
+  const [rerender, setRerender] = useState(false);
+
   // Memoize the searchParams object creation
   const searchParams = useMemo(() => new URLSearchParams(window.location.search), [window.location.search]);
 
@@ -60,10 +61,10 @@ export default function Artworks() {
       }
     };
 
-    if (category) {
+    if (category || rerender) {
       fetchData();
     }
-  }, [category, priceRange, searchParams]);
+  }, [category, priceRange, searchParams,rerender]);
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-8">
@@ -73,9 +74,13 @@ export default function Artworks() {
 
           {artData ? (
             artData.length > 0 ? (
-              <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 ">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 mr-3 ">
                 {artData.map((artwork) => (
-                  <Art key={artwork._id} artwork={artwork} useStyledComponent/>
+                  <ArtworkItem
+                  key={artwork._id}
+                  artwork={artwork}
+                  setRerender={setRerender}
+                />
                 ))}
               </div>
             ) : (

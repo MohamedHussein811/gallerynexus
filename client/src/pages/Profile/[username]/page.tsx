@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import NotFound from "../../../not-found";
 import Loading from "../../../components/Loading/Loading";
 import ProfileHeader from "../../../components/Profile/ProfileHeader";
-import ArtworkItem from "../../../components/Profile/ArtworkItem";
+import ArtworkItem from "../../../components/Art/ArtworkItem/ArtworkItem";
 import { useParams } from "react-router-dom";
 
 interface ArtData {
@@ -75,7 +75,6 @@ export default function Profile() {
                         <ArtworkItem
                           key={artwork._id}
                           artwork={artwork}
-                          userData={userData}
                           setRerender={setRerender}
                         />
                       ))}

@@ -1,7 +1,7 @@
 import Axios from "axios";
 import { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
 //export const api = "http://localhost:3001";
@@ -27,7 +27,7 @@ export const useUserId = () => {
 export const useUserName = () => {
   const [myUsername, setUsername] = useState<string>("");
   const [myProfileImage, setprofileImage] = useState<string>("");
-  const [cookies] = useCookies(["access_token"]); 
+  const [cookies] = useCookies(["access_token"]);
 
   useEffect(() => {
     const getUser = async () => {
@@ -37,7 +37,7 @@ export const useUserName = () => {
           const res = await Axios.get(`${api}/getuser/${storedUserId}`, {
             withCredentials: true,
             headers: {
-              Authorization: `Bearer ${cookies.access_token}`, 
+              Authorization: `Bearer ${cookies.access_token}`,
             },
           });
           setUsername(res.data.username);
@@ -108,18 +108,18 @@ export const useCart = () => {
   } | null>(null);
   const { UserID } = useUser();
   const [cookies] = useCookies(["access_token"]);
+  const navigate = useNavigate();
 
   const NotLoggedIn = () => {
     toast(`You're not Logged in.`, {
       action: {
-        label: <Link to={`/Auth`}>Log in</Link>,
-        onClick: () => console.log("Close"),
+        label: `Log in`,
+        onClick: () => navigate("/Auth"),
       },
     });
   };
 
-const handleAddToCart = async (ArtID: any) => {
-
+  const handleAddToCart = async (ArtID: any) => {
     if (UserID) {
       try {
         const res = await Axios.post(
@@ -132,9 +132,7 @@ const handleAddToCart = async (ArtID: any) => {
             },
           }
         );
-        if (res.status) {
           setNotification({ message: res.data.message, status: res.status });
-        }
       } catch (error) {
         console.error("Error occurred:", error);
       }
@@ -168,16 +166,16 @@ export function useSonner(notification: any) {
 
 export function DisableRightClick() {
   useEffect(() => {
-    function handleContextMenu(event: { preventDefault: () => void; }) {
+    function handleContextMenu(event: { preventDefault: () => void }) {
       event.preventDefault(); // Prevent default right-click behavior
     }
 
     // Add event listener when component mounts
-    window.addEventListener('contextmenu', handleContextMenu);
+    window.addEventListener("contextmenu", handleContextMenu);
 
     // Remove event listener when component unmounts
     return () => {
-      window.removeEventListener('contextmenu', handleContextMenu);
+      window.removeEventListener("contextmenu", handleContextMenu);
     };
   }, []);
 }

@@ -4,7 +4,6 @@ import NotFound from "../../not-found";
 import { api } from "../../constants/constants";
 import axios from "axios";
 import { useCookies } from "react-cookie";
-import PInfo from "../../components/ArtComponent/PInfo";
 import {
   Carousel,
   CarouselContent,
@@ -13,6 +12,7 @@ import {
   CarouselPrevious,
 } from "../../components/ui/carousel";
 import { Link } from "react-router-dom";
+import PInfo from "../../components/Art/ArtDetails/PInfo";
 
 interface ArtData {
   lastone: string;

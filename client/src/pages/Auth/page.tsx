@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
 
 import { useUser } from "../../constants/constants";
-import LoginForm from "../../components/LoginForm/LoginForm";
-import RegForm from "../../components/RegForm/RegForm";
+import LoginForm from "../../components/Auth/LoginForm/LoginForm";
+import RegForm from "../../components/Auth/RegForm/RegForm";
 import "./Auth.css";
 import { useNavigate } from "react-router-dom";
 export default function Auth() {

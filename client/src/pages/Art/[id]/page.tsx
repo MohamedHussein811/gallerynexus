@@ -3,10 +3,10 @@ import axios from "axios";
 import Loading from "../../../components/Loading/Loading";
 import { api } from "../../../constants/constants";
 import NotFound from "../../../not-found";
-import ArtImage from "../../../components/ArtDetails/ArtImage";
-import ArtDetails from "../../../components/ArtDetails/ArtDetails";
-import More from "../../../components/ArtDetails/More";
-import ArtReview from "../../../components/ArtDetails/ArtReview";
+import ArtImage from "../../../components/Art/ArtDetails/ArtImage";
+import ArtDetails from "../../../components/Art/ArtDetails/ArtDetails";
+import More from "../../../components/Art/ArtDetails/More";
+import ArtReview from "../../../components/Art/ArtDetails/ArtReview";
 import { useParams } from "react-router-dom";
 
 interface ArtData {

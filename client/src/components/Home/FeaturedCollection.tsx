@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Loading from "../Loading/Loading";
-import { api } from "../../constants/constants";
-import ArtComponent from "../ArtComponent/ArtComponent";
+import { DisableRightClick, api } from "../../constants/constants";
+import ArtworkItem from "../Art/ArtworkItem/ArtworkItem";
 interface ArtData {
   _id: string;
   title: string;
@@ -11,9 +11,19 @@ interface ArtData {
   size: string;
   price: number;
 }
-
+interface UserData {
+  _id: string;
+  username: string;
+  email: string;
+  isArtist: boolean;
+  artworks: ArtData[];
+  profileImage: string;
+  bio: string;
+}
 export default function FeaturedCollection() {
   const [artData, setArtData] = useState<ArtData[] | null>(null);
+  const [rerender, setRerender] = useState(false);
+  DisableRightClick();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,7 +38,7 @@ export default function FeaturedCollection() {
       }
     };
     fetchData();
-  }, [artData]);
+  }, [artData,rerender]);
 
   const shuffleArray = (array: any[]) => {
     for (let i = array.length - 1; i > 0; i--) {
@@ -39,14 +49,20 @@ export default function FeaturedCollection() {
   };
 
   return (
-    <div className="flex justify-center ">
-      <div className="flex flex-wrap justify-center md:justify-start space-x-4 py-4">
-        {artData ? (
-          artData.slice(0, 6).map((artwork, index) => <ArtComponent key={index} artwork={artwork} />)
-        ) : (
-          <Loading />
-        )}
-      </div>
+    <div className=" mx-auto px-4">
+    {artData ? (
+          <ul className="grid grid-cols-2 md:grid-cols-6 gap-8">
+            {artData.slice(0, 6).map((artwork, index) => (
+              <ArtworkItem
+                key={artwork._id}
+                artwork={artwork}
+                setRerender={setRerender}
+              />
+            ))}
+          </ul>
+      ) : (
+        <Loading />
+      )}
     </div>
   );
 }

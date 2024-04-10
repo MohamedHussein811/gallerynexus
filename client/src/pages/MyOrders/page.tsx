@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import Axios from "axios";
 import NotFound from "../../not-found";
 import { api, useUser } from "../../constants/constants";
-import { OrderDetails } from "../../components/MyOrders/OrderDetails";
-import { Order } from "../../components/MyOrders/Interfaces";
+import { OrderDetails } from "../../components/Shop/MyOrders/OrderDetails";
+import { Order } from "../../components/Shop/MyOrders/Interfaces";
 import Loading from "../../components/Loading/Loading";
 import { useCookies } from "react-cookie";
 

@@ -3,7 +3,7 @@ import axios from "axios";
 import Loading from "../../../components/Loading/Loading";
 import { api } from "../../../constants/constants";
 import NotFound from "../../../not-found";
-import ArtImage from "../../../components/ArtDetails/ArtImage";
+import ArtImage from "../../../components/Art/ArtDetails/ArtImage";
 import { useCookies } from "react-cookie";
 import { useParams } from "react-router-dom";
 
