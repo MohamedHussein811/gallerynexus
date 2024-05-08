@@ -17,7 +17,7 @@ import { useUser } from "./constants/constants";
 function App() {
   const {isAdmin} = useUser();
   return (
-    <main className="">
+    <main>
       <Routes>
         {isAdmin && <Route path="/Admin" element={<Admin />} />}
         
