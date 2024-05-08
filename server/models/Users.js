@@ -6,7 +6,7 @@ const UserSchema = new mongoose.Schema({
   password: { type: String, required: true },
   phone: { type: String },
   gender: { type: String },
-  age: { type: Number },
+  age: { type: Date },
   profileImage: { type: String, default: "/assets/Profile/Profile.jpg" },
   bio: { type: String, default: "" },
   isArtist: { type: Boolean, default: false },
@@ -21,8 +21,8 @@ const UserSchema = new mongoose.Schema({
       reviews: [
         {
           userId: { type: mongoose.Schema.Types.ObjectId, ref: "users" },
-          review: { type: String,default:""},
-          rating: {type: Number, default: 1},
+          review: { type: String, default: "" },
+          rating: { type: Number, default: 1 },
           updatedAt: { type: Date, default: Date.now },
         },
       ],

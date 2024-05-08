@@ -45,6 +45,31 @@ router.get("/getartworkreviews/:artworkID",  ArtController.getArtworkReviews);
 
 router.post("/upload", authenticateToken, UploadController.uploadImages);
 
-// File Upload Routes
+  // Protected route
+  router.get('/getstorage', (req, res) => {
+    const urlImages = `https://api.cloudinary.com/v1_1/${process.env.CLOUD_NAME}/resources/image`;
+    const urlVideos = `https://api.cloudinary.com/v1_1/${process.env.CLOUD_NAME}/resources/video`;
 
+    const apiKey = process.env.CLOUD_API_KEY;
+    const apiSecret = process.env.CLOUD_API_SECRET;
+
+    const headers = {
+        Authorization: `Basic ${Buffer.from(apiKey + ':' + apiSecret).toString('base64')}`
+    };
+
+    // Fetch both image and video data simultaneously
+    Promise.all([
+        fetch(urlImages, { headers }).then(response => response.json()),
+        fetch(urlVideos, { headers }).then(response => response.json())
+    ])
+    .then(([imageData, videoData]) => {
+        // Combine the responses into one list
+        const combinedData = [...imageData.resources, ...videoData.resources];
+        res.json(combinedData);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json({ error: 'An error occurred while fetching data.' });
+    });
+});
 module.exports = router;

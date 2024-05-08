@@ -33,7 +33,7 @@ async function sendRegistrationEmail(userEmail, activation_code) {
     });
   } catch (error) {
     console.error("Error sending registration email:", error);
-    throw error; 
+    throw error;
   }
 }
 const createUser = async (req, res) => {
@@ -43,7 +43,8 @@ const createUser = async (req, res) => {
     // Validation
     if (!username || !email || !password || !age || !phone) {
       return res.status(201).json({
-        message: "username, email, password, age, and phone are required fields.",
+        message:
+          "username, email, password, age, and phone are required fields.",
       });
     }
 
@@ -117,7 +118,7 @@ const createUser = async (req, res) => {
     const newUser = new UserModel({
       username,
       email,
-      age: parsedAge,
+      ge: age.split("T")[0],
       password: hashedPassword,
       phone,
       activation_code: activationCode,
@@ -289,13 +290,18 @@ const updateProfileByUsername = async (req, res) => {
     );
 
     // Respond with success message
-    res.status(200).json({ message: "Profile updated successfully", username: newUsername, profileImage: newProfileImage });
+    res
+      .status(200)
+      .json({
+        message: "Profile updated successfully",
+        username: newUsername,
+        profileImage: newProfileImage,
+      });
   } catch (error) {
     console.error("Error editing profile", error);
     res.status(500).json({ message: "Internal server error" });
   }
 };
-
 
 module.exports = {
   getAllUsers,

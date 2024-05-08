@@ -12,10 +12,15 @@ import Cart from "./pages/Cart/page";
 import MyOrders from "./pages/MyOrders/page";
 import Profile from "./pages/Profile/[username]/page";
 import Addauction from "./pages/Addauction/page";
+import Admin from "./pages/Admin/Admin";
+import { useUser } from "./constants/constants";
 function App() {
+  const {isAdmin} = useUser();
   return (
     <main className="">
       <Routes>
+        {isAdmin && <Route path="/Admin" element={<Admin />} />}
+        
         <Route path="/AddArtworkForm" element={<AddArtworkForm />} />
         <Route path="/Addauction" element={<Addauction />} />
         <Route path="/Art/:id" element={<ArtPage />} />

@@ -4,8 +4,8 @@ import { useCookies } from "react-cookie";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
-//export const api = "http://localhost:3001";
-export const api = "https://api-gallerynexus.vercel.app";
+export const api = "http://localhost:3001";
+//export const api = "https://api-gallerynexus.vercel.app";
 export const frontendURL = "https://gallery-nexus.vercel.app";
 
 export const useUserId = () => {
@@ -70,6 +70,7 @@ export const useUser = () => {
   const [myProfileImage, setprofileImage] = useState<string>("");
   const [isArtist, setisArtist] = useState<boolean>(false);
   const [cookies] = useCookies(["access_token"]);
+  const [isAdmin, setisAdmin] = useState<boolean>(false);
 
   useEffect(() => {
     const getUser = async () => {
@@ -85,6 +86,7 @@ export const useUser = () => {
           setUsername(res.data.username);
           setprofileImage(res.data.profileImage);
           setisArtist(res.data.isArtist);
+          setisAdmin(res.data.isAdmin);
           setId(storedUserId);
         } catch (error) {
           console.error("Error fetching user:", error);
@@ -98,7 +100,7 @@ export const useUser = () => {
     getUser();
   }, [cookies.access_token]);
 
-  return { myUsername, myProfileImage, UserID, setId, setisArtist, isArtist };
+  return { myUsername, myProfileImage, UserID, setId,isAdmin, setisArtist, isArtist };
 };
 
 export const useCart = () => {

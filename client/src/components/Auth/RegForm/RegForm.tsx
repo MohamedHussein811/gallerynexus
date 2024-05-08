@@ -58,7 +58,7 @@ export default function RegForm({ switchForm }: any) {
       />
       <input
         className={'input'}
-        type="number"
+        type="date"
         placeholder="Age"
         onChange={(e) => setAge(e.target.value)}
         required

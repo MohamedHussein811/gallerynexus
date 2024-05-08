@@ -19,7 +19,7 @@ export default function ShopBy({ Type }: any) {
       { href: "/Artworks/Photography", label: "Photography" },
       { href: "/Artworks/Drawings", label: "Drawings" },
       { href: "/Artworks/Sculpture", label: "Sculpture" },
-      { href: "/Artworks/MixedMedia", label: "Mixed Media" },
+      { href: "/Artworks/Mixed Media", label: "Mixed Media" },
       { href: "/Artworks/Prints", label: "Prints" },
 
     ];

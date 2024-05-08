@@ -397,3 +397,159 @@ export function Correct() {
     </>
   );
 }
+
+export function CameraIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 512 512"
+      fill="#fff"
+      width={50}
+      height={50}
+    >
+      <path d="M149.1 64.8L138.7 96H64C28.7 96 0 124.7 0 160V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H373.3L362.9 64.8C356.4 45.2 338.1 32 317.4 32H194.6c-20.7 0-39 13.2-45.5 32.8zM256 192a96 96 0 1 1 0 192 96 96 0 1 1 0-192z" />
+    </svg>
+  );
+}
+
+//Admin
+export function TotalPosts() {
+  return (
+    <svg
+      stroke="blue"
+      fill="blue"
+      strokeWidth="0"
+      viewBox="0 0 24 24"
+      focusable="false"
+      height="2em"
+      width="2em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path fill="none" d="M0 0h24v24H0z"></path>
+      <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm-1 4l6 6v10c0 1.1-.9 2-2 2H7.99C6.89 23 6 22.1 6 21l.01-14c0-1.1.89-2 1.99-2h7zm-1 7h5.5L14 6.5V12z"></path>
+    </svg>
+  );
+}
+
+export function UserIcon() {
+  return (
+    <svg width="2em" height="2em" viewBox="0 0 24 24">
+      <path
+        fill="blue"
+        d="M12,12c2.21,0,4-1.79,4-4s-1.79-4-4-4s-4,1.79-4,4S9.79,12,12,12z M12,14c-2.67,0-8,1.34-8,4v2h16v-2 C20,15.34,14.67,14,12,14z"
+      />
+    </svg>
+  );
+}
+
+export function EarnIcon() {
+  return (
+    <svg
+      stroke="blue"
+      fill="blue"
+      strokeWidth="0"
+      viewBox="0 0 24 24"
+      focusable="false"
+      height="2em"
+      width="2em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path fill="none" d="M0 0h24v24H0z"></path>
+      <path d="M4 9h4v11H4zM16 13h4v7h-4zM10 4h4v16h-4z"></path>
+    </svg>
+  );
+}
+
+export function CloudIcon() {
+  return (
+    <svg
+      stroke="blue"
+      fill="blue"
+      strokeWidth="0"
+      viewBox="0 0 24 24"
+      focusable="false"
+      height="2em"
+      width="2em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path fill="none" d="M0 0h24v24H0V0z"></path>
+      <path d="M19.35 10.04A7.49 7.49 0 0012 4C9.11 4 6.6 5.64 5.35 8.04A5.994 5.994 0 000 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM19 18H6c-2.21 0-4-1.79-4-4 0-2.05 1.53-3.76 3.56-3.97l1.07-.11.5-.95A5.469 5.469 0 0112 6c2.62 0 4.88 1.86 5.39 4.43l.3 1.5 1.53.11A2.98 2.98 0 0122 15c0 1.65-1.35 3-3 3zm-9-3.82l-2.09-2.09L6.5 13.5 10 17l6.01-6.01-1.41-1.41z"></path>
+    </svg>
+  );
+}
+
+export function DollarIcon() {
+  return (
+    <svg
+      stroke="blue"
+      fill="blue"
+      strokeWidth="0"
+      viewBox="0 0 24 24"
+      focusable="false"
+      height="2em"
+      width="2em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path fill="none" d="M0 0h24v24H0z"></path>
+      <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"></path>
+    </svg>
+  );
+}
+export function ReelsIcon({ fill = "#fff" }) {
+  return (
+    <svg
+      aria-label="Reels"
+      fill={fill}
+      height="24"
+      role="img"
+      viewBox="0 0 24 24"
+      width="24"
+    >
+      <title>Reels</title>
+      <line
+        fill="none"
+        stroke={fill}
+        strokeLinejoin="round"
+        strokeWidth="2"
+        x1="2.049"
+        x2="21.95"
+        y1="7.002"
+        y2="7.002"
+      ></line>
+      <line
+        fill="none"
+        stroke={fill}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+        x1="13.504"
+        x2="16.362"
+        y1="2.001"
+        y2="7.002"
+      ></line>
+      <line
+        fill="none"
+        stroke={fill}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+        x1="7.207"
+        x2="10.002"
+        y1="2.11"
+        y2="7.002"
+      ></line>
+      <path
+        d="M2 12.001v3.449c0 2.849.698 4.006 1.606 4.945.94.908 2.098 1.607 4.946 1.607h6.896c2.848 0 4.006-.699 4.946-1.607.908-.939 1.606-2.096 1.606-4.945V8.552c0-2.848-.698-4.006-1.606-4.945C19.454 2.699 18.296 2 15.448 2H8.552c-2.848 0-4.006.699-4.946 1.607C2.698 4.546 2 5.704 2 8.552Z"
+        fill="none"
+        stroke={fill}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+      ></path>
+      <path
+        d="M9.763 17.664a.908.908 0 0 1-.454-.787V11.63a.909.909 0 0 1 1.364-.788l4.545 2.624a.909.909 0 0 1 0 1.575l-4.545 2.624a.91.91 0 0 1-.91 0Z"
+        fillRule="evenodd"
+      ></path>
+    </svg>
+  );
+}
