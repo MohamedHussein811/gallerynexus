@@ -55,7 +55,6 @@ export default function Admin() {
       
 
       // Fetch total artist
-      // Fetch total reels
 
       // Fetch Cloudinary usage
       const cloudinaryResponse = await axios.get(`/getstorage`);

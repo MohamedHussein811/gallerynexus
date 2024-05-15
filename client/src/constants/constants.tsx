@@ -181,3 +181,16 @@ export function DisableRightClick() {
     };
   }, []);
 }
+
+export const DisplaySonner = (notification: any) => {
+  if (notification) {
+    const timestamp = new Date().toLocaleString();
+    toast(notification, {
+      description: timestamp,
+      action: {
+        label: "Close",
+        onClick: () => console.log("Close"),
+      },
+    });
+  }
+};

@@ -5,7 +5,7 @@ import { useCookies } from "react-cookie";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function NavHeader() {
-  const { myUsername, UserID, setId, isArtist, setisArtist } = useUser();
+  const { myUsername, UserID, setId, isArtist, setisArtist,isAdmin } = useUser();
   const [cookies, , removeCookie] = useCookies(["access_token"]);
   const navigate = useNavigate();
   useEffect(() => {
@@ -32,6 +32,8 @@ export default function NavHeader() {
   return (
     <div className="flex justify-end bg-neutral-900">
       <div className="flex items-center text-white pr-3">
+        {isAdmin && <><a href="/Admin">Admin Panel</a>             <span className="mx-2">|</span></>
+}
         {isArtist && (
           <>
             <Link

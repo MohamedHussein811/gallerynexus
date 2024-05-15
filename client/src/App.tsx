@@ -14,13 +14,21 @@ import Profile from "./pages/Profile/[username]/page";
 import Addauction from "./pages/Addauction/page";
 import Admin from "./pages/Admin/Admin";
 import { useUser } from "./constants/constants";
+import Users from "./pages/Admin/users/users";
+import ModifyUser from "./pages/Admin/users/[id]/ModifyUser";
 function App() {
-  const {isAdmin} = useUser();
+  const { isAdmin } = useUser();
   return (
     <main>
       <Routes>
-        {isAdmin && <Route path="/Admin" element={<Admin />} />}
-        
+        {isAdmin && (
+          <>
+            <Route path="/Admin" element={<Admin />} />
+            <Route path="/Admin/users" element={<Users/>} />
+            <Route path="/Admin/users/:id" element={<ModifyUser />} />
+          </>
+        )}
+
         <Route path="/AddArtworkForm" element={<AddArtworkForm />} />
         <Route path="/Addauction" element={<Addauction />} />
         <Route path="/Art/:id" element={<ArtPage />} />
@@ -31,7 +39,6 @@ function App() {
         <Route path="/Cart" element={<Cart />} />
         <Route path="/MyOrders" element={<MyOrders />} />
         <Route path="/Profile/:username" element={<Profile />} />
-        
 
         <Route path="/" element={<Home />} />
 
