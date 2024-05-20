@@ -229,7 +229,7 @@ const login = async (req, res) => {
 
 const getUserById = async (req, res) => {
   try {
-    const userId = req.params.userId;
+    const userId = req.userId;
 
     // Find the user by ID
     const user = await UserModel.findById(userId);

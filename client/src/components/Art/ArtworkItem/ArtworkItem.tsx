@@ -55,7 +55,6 @@ const ArtworkItem = ({ artwork, setRerender }: any) => {
         );
         if (res.status === 200) {
           setUserData(res.data);
-          console.log(res.data);
         }
       } catch (error) {
         setUserNotFound(true);

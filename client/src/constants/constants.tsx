@@ -42,17 +42,9 @@ export const useUserName = () => {
           });
           setUsername(res.data.username);
           setprofileImage(res.data.profileImage);
-          if (res.status != 200) {
-            window.localStorage.removeItem("UserID");
-            document.cookie =
-              "access_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-          }
         } catch (error) {
           console.error("Error fetching user:", error);
           // Clear local storage and cookies
-          window.localStorage.removeItem("UserID");
-          document.cookie =
-            "access_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         }
       }
     };
@@ -74,33 +66,35 @@ export const useUser = () => {
 
   useEffect(() => {
     const getUser = async () => {
-      const storedUserId = window.localStorage.getItem("UserID");
-      if (storedUserId) {
-        try {
-          const res = await Axios.get(`${api}/getuser/${storedUserId}`, {
-            withCredentials: true,
-            headers: {
-              Authorization: `Bearer ${cookies.access_token}`,
-            },
-          });
-          setUsername(res.data.username);
-          setprofileImage(res.data.profileImage);
-          setisArtist(res.data.isArtist);
-          setisAdmin(res.data.isAdmin);
-          setId(storedUserId);
-        } catch (error) {
-          console.error("Error fetching user:", error);
-          window.localStorage.removeItem("UserID");
-          document.cookie =
-            "access_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-        }
+      try {
+        const res = await Axios.get(`${api}/getuser`, {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${cookies.access_token}`,
+          },
+        });
+        setUsername(res.data.username);
+        setprofileImage(res.data.profileImage);
+        setisArtist(res.data.isArtist);
+        setisAdmin(res.data.isAdmin);
+        setId(res.data._id);
+      } catch (error) {
+        console.error("Error fetching user:", error);
       }
     };
 
     getUser();
   }, [cookies.access_token]);
 
-  return { myUsername, myProfileImage, UserID, setId,isAdmin, setisArtist, isArtist };
+  return {
+    myUsername,
+    myProfileImage,
+    UserID,
+    setId,
+    isAdmin,
+    setisArtist,
+    isArtist,
+  };
 };
 
 export const useCart = () => {
@@ -134,7 +128,7 @@ export const useCart = () => {
             },
           }
         );
-          setNotification({ message: res.data.message, status: res.status });
+        setNotification({ message: res.data.message, status: res.status });
       } catch (error) {
         console.error("Error occurred:", error);
       }

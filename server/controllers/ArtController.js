@@ -338,6 +338,9 @@ const getUserOrders = async (req, res) => {
     const populatedOrders = await Promise.all(user.orders.map(async order => {
       const populatedItems = await Promise.all(order.items.map(async item => {
         const artwork = await UserModel.findOne({ 'artworks._id': item.itemId }, { 'artworks.$': 1 });
+        if (!artwork) {
+          return { ...item.toObject(), artwork: null };
+        }
         return { ...item.toObject(), artwork: artwork.artworks[0] };
       }));
       return { ...order.toObject(), items: populatedItems };
@@ -351,6 +354,7 @@ const getUserOrders = async (req, res) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
+
 
 const deleteFromCart = async (req, res) => {
   try {

@@ -28,6 +28,7 @@ export interface Order {
       phone: string;
       email: string;
     };
+    
     orderStatus: string;
     createdAt: string;
   }

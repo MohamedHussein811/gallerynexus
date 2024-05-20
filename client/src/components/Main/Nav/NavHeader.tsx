@@ -32,7 +32,7 @@ export default function NavHeader() {
   return (
     <div className="flex justify-end bg-neutral-900">
       <div className="flex items-center text-white pr-3">
-        {isAdmin && <><a href="/Admin">Admin Panel</a>             <span className="mx-2">|</span></>
+        {isAdmin && <><a href="/MyOrders">Admin Panel</a>             <span className="mx-2">|</span></>
 }
         {isArtist && (
           <>

@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import Axios from "axios";
 import NotFound from "../../not-found";
 import { api, useUser } from "../../constants/constants";
-import { OrderDetails } from "../../components/Shop/MyOrders/OrderDetails";
 import { Order } from "../../components/Shop/MyOrders/Interfaces";
 import Loading from "../../components/Loading/Loading";
 import { useCookies } from "react-cookie";
+import OrderDetails from "../../components/Shop/MyOrders/OrderDetails";
 
 export default function MyOrders() {
   const { UserID } = useUser();
@@ -28,7 +28,7 @@ export default function MyOrders() {
             (a: Order, b: Order) =>
               new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
           );
-          setOrders(sortedOrders);
+          setOrders(res.data.orders);
           setLoading(false);
         }
       } catch (error) {
@@ -52,6 +52,7 @@ export default function MyOrders() {
   if (userNotFound) {
     return <NotFound />;
   }
+  
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -60,7 +61,6 @@ export default function MyOrders() {
         <table className="table-auto w-full border-collapse">
           <thead>
             <tr>
-              <th className="border px-4 py-2">Items</th>
               <th className="border px-4 py-2">Total Amount</th>
               <th className="border px-4 py-2">Order Status</th>
               <th className="border px-4 py-2">Created At</th>

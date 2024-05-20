@@ -10,8 +10,7 @@ import axios from "axios";
 import { useCookies } from "react-cookie";
 const Root = () => {
   axios.defaults.withCredentials = true;
-  axios.defaults.baseURL = import.meta.env.VITE_API_URL;
-  const [cookies] = useCookies([import.meta.env.VITE_ACCESS_COOKIE]);
+  const [cookies] = useCookies(["access_token"]);
 
   useEffect(() => {
     if (cookies.access_token) {

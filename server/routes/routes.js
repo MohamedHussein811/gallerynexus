@@ -11,8 +11,8 @@ router.get("/", (req, res) => {
 
 // User Routes
 router.get("/users", authenticateToken, UserController.getAllUsers);
-router.get("/getuser/:userId", UserController.getUserById);
-router.get("/getuserbyusername/:username", UserController.getUserByUsername);
+router.get("/getuser", authenticateToken,UserController.getUserById);
+router.get("/getuserbyusername/:username", authenticateToken,UserController.getUserByUsername);
 router.post("/createUser", UserController.createUser);
 router.post("/login", UserController.login);
 router.post("/activateUser", UserController.activateUser);
